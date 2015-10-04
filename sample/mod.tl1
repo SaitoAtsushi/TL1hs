@@ -1,0 +1,8 @@
+% system function `mod'
+
+VAR X, Y
+BEGIN
+ X := 200
+ Y := X/13
+ WRITE(0: MOD)
+END

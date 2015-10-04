@@ -1,0 +1,8 @@
+% system function `mhigh'
+
+VAR X, Y
+BEGIN
+ X := 5
+ Y := X*200
+ WRITE(0: MHIGH)
+END

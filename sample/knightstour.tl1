@@ -1,0 +1,60 @@
+% knight's tour
+
+proc printboard, init, try
+var solution, count
+array board[80], dx[7], dy[7]
+begin
+end
+
+printboard
+var i, j
+begin
+ solution := solution+1
+ write(0: "answer ", solution, crlf)
+ for i:=2 to 6 do {
+  for j:=2 to 6 do write(0: #(4, board[i*9+j]))
+  write(0: crlf)
+ }
+end
+
+try(x, y)
+var i
+begin
+ if board[x*9+y] # 0 then return
+ count := count+1
+ board [x*9+y] := count
+ if count = 25 then printboard
+ else for i:=0 to 7 do try(x+dx[i], y+dy[i])
+ board[x*9+y] := 0
+ count := count-1
+end
+
+init
+var i, j
+begin
+ solution,count := 0
+
+ dx[0] := 2
+ dx[1] := 1
+ dx[2] := neg(1)
+ dx[3] := neg(2)
+ dx[4] := neg(2)
+ dx[5] := neg(1)
+ dx[6] := 1
+ dx[7] := 2
+
+ dy[0] := 1
+ dy[1] := 2
+ dy[2] := 2
+ dy[3] := 1
+ dy[4] := neg(1)
+ dy[5] := neg(2)
+ dy[6] := neg(2)
+ dy[7] := neg(1)
+
+ for i:=0 to 8 do
+  for j:=0 to 8 do board[i*9+j] := 1
+
+ for i:=2 to 6 do
+  for j:=2 to 6 do board[i*9+j] := 0
+end

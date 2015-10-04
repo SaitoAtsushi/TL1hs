@@ -1,0 +1,16 @@
+% greatest common divisor
+
+FUNC GCD
+
+BEGIN
+ WRITE(0: "GCD(84,36) = ", GCD(84,36))
+END
+
+GCD(F, G)
+BEGIN
+ WHILE F#G DO BEGIN
+  IF F<G THEN G:=G-F
+  IF G<F THEN F:=F-G
+ END
+ RETURN F
+END
